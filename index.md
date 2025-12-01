@@ -310,13 +310,19 @@ REW measurement data directly informs:
 - [ ] Test boot sequence and power management
 - [ ] Establish USB-CDC debug interface
 - [ ] Create initial device tree overlays for audio hardware
+- [ ] Initial factory liaison coordination:
+  - Review current factory hardware status (PCB design, 3D enclosure prototypes)
+  - Align firmware requirements with PCB design (pin assignments, power rails, interfaces)
+  - Coordinate on boot sequence and power management requirements
+  - Review 3D enclosure design for thermal and acoustic considerations
 
 **Deliverables:**
 - RK3308B boots to Linux shell
 - ESP32-S3 can send/receive commands to/from RK3308B
 - Basic logging and debug infrastructure operational
+- Factory coordination initiated
 
-**Hours:** ~40h
+**Hours:** ~42h (40h development + 2h factory liaison)
 
 ---
 
@@ -334,14 +340,21 @@ REW measurement data directly informs:
 - [ ] Build basic command routing system
 - [ ] Test audio latency and buffer management
 - [ ] Validate mic array channel mapping and gain staging
+- [ ] Factory liaison coordination:
+  - Provide audio hardware requirements (I²S, TDM specifications) for PCB design
+  - Coordinate on mic array geometry and positioning requirements (3D enclosure design)
+  - Review PCB layout for audio signal integrity (ground planes, routing)
+  - Align on test procedures for factory validation
+  - Coordinate on 3D enclosure acoustic properties (mic array placement, speaker positioning)
 
 **Deliverables:**
 - Audio output functional (test tones)
 - Mic array capturing all 4 channels
 - LEDs controllable from RK3308B
+- Factory audio requirements documented
 - **Demo 1 ready for presentation**
 
-**Hours:** ~40h
+**Hours:** ~42h (40h development + 2h factory liaison)
 
 ---
 
@@ -364,6 +377,12 @@ REW measurement data directly informs:
 - [ ] Implement device registration and authentication endpoints (firmware side)
 - [ ] Create basic server communication module (ESP32-S3 → Server)
 - [ ] Test initial server connectivity and authentication
+- [ ] Factory liaison coordination:
+  - Provide DSP and audio processing requirements for PCB component selection
+  - Coordinate on network connectivity requirements (WiFi, Ethernet) for PCB design
+  - Review PCB power supply design for DSP processing requirements
+  - Coordinate on 3D enclosure thermal design for heat dissipation
+  - Align on production test procedures for audio validation
 
 **Deliverables:**
 - Spotify Connect device appears in Spotify app
@@ -371,8 +390,9 @@ REW measurement data directly informs:
 - DSP framework ready for algorithm loading
 - Server communication infrastructure established (firmware side)
 - API specifications coordinated with server/app teams
+- Factory DSP/audio requirements documented
 
-**Hours:** ~45h (40h audio/DSP + 5h server integration coordination)
+**Hours:** ~47h (40h audio/DSP + 5h server integration + 2h factory liaison)
 
 ---
 
@@ -466,16 +486,18 @@ REW measurement data directly informs:
 - [ ] Document beamforming performance metrics with REW data
 - [ ] Generate REW measurement screenshots for demo presentation
 - [ ] Prepare demo materials (recordings, visualizations, REW measurement reports)
-- [ ] Initial factory liaison coordination:
-  - Review hardware specifications with factory/OEM partners
-  - Provide firmware requirements documentation
-  - Coordinate on DVT (Design Verification Test) planning
+- [ ] Factory liaison coordination:
+  - Provide beamforming performance requirements and specifications
+  - Coordinate on mic array positioning in 3D enclosure for optimal beamforming
+  - Review PCB layout for mic array signal integrity and noise isolation
+  - Coordinate on DVT (Design Verification Test) hardware validation (PCB and 3D prototypes)
+  - Share REW measurement data with factory for production test alignment
 
 **Deliverables:**
 - Beamforming functional and tuned
 - Far-field wake word performance validated
 - REW measurement data showing beamforming improvements
-- Factory coordination initiated
+- Factory beamforming requirements and test data shared
 - **Demo 3 ready for presentation** (includes REW measurement demonstrations)
 
 **Hours:** ~20h (acoustics) + ~22h (engineering: 20h beamforming + 2h factory liaison)
@@ -511,10 +533,12 @@ REW measurement data directly informs:
 - [ ] End-to-end integration testing: App (Aman) ↔ Server (Vinaya) ↔ Firmware
 - [ ] Document firmware-side API specifications for server/app teams
 - [ ] Factory liaison coordination:
-  - Develop factory test procedures and specifications
-  - Coordinate on production line test requirements
-  - Provide firmware calibration procedures for factory
-  - Review DVT hardware requirements with factory
+  - Finalize factory test procedures and specifications
+  - Coordinate on production line test requirements and setup (PCB testing, 3D assembly validation)
+  - Provide firmware calibration procedures and test scripts for factory
+  - Review DVT hardware validation results with factory (PCB electrical tests, 3D enclosure fit/function)
+  - Coordinate on production readiness timeline (PCB manufacturing, 3D printing/assembly)
+  - Validate final PCB and 3D enclosure prototypes with firmware
 
 **Deliverables:**
 - AEC functional with Spotify playback
@@ -523,7 +547,7 @@ REW measurement data directly informs:
 - Environmental testing complete
 - Server integration fully validated (coordinated with Vinaya)
 - App integration fully validated (coordinated with Aman)
-- Factory test procedures documented
+- Factory test procedures finalized and ready
 
 **Hours:** ~20h (acoustics) + ~28h (engineering: 20h AEC + 5h server/app + 3h factory liaison)
 
@@ -555,21 +579,23 @@ REW measurement data directly informs:
 - [ ] Prepare comprehensive demo showcasing all features including REW measurement demonstrations and server/app integration
 - [ ] Document firmware system architecture and API specifications (for server/app teams)
 - [ ] Final factory liaison and production readiness:
-  - Complete factory test procedure documentation
-  - Production line test setup specifications
-  - Firmware release package for factory (binaries, calibration data, test scripts)
-  - Production readiness review with factory/OEM partners
-  - DVT hardware validation coordination
-  - Factory training materials (if required)
-  - Production sign-off documentation
+  - Deliver final factory test procedure documentation (PCB electrical tests, 3D assembly validation)
+  - Provide production line test setup specifications and validation
+  - Deliver firmware release package for factory (binaries, calibration data, test scripts)
+  - Production readiness review and sign-off with factory/OEM partners (PCB and 3D enclosure)
+  - DVT hardware validation completion and approval (final PCB and 3D prototypes)
+  - Coordinate on PCB manufacturing readiness and 3D printing/assembly processes
+  - Factory training materials and documentation (if required)
+  - Production launch coordination and timeline alignment (PCB production, 3D printing, assembly)
 
 **Deliverables:**
 - All features integrated and tested
 - Production-ready tuning parameters validated with REW measurements
 - Final acoustic report with complete REW measurement data and analysis
 - Manufacturing test procedures based on REW measurement protocols
-- Factory test procedures and production line specifications complete
-- Firmware release package ready for factory
+- Factory test procedures and production line specifications delivered
+- Firmware release package delivered to factory
+- Production readiness sign-off complete
 - Server/app integration production-ready (coordinated with Vinaya and Aman)
 - **Demo 4 ready for presentation** (includes final REW measurement demonstrations and full server/app integration)
 - Complete documentation package (firmware APIs, integration specs, factory documentation)
@@ -584,29 +610,31 @@ REW measurement data directly informs:
 
 **Server and App Development:** Server development (by Vinaya) and app development (by Aman) will proceed in parallel with firmware development. This proposal covers firmware-side integration work, API coordination, and end-to-end testing. Firmware tasks focus on integration points and coordination rather than building server/app components.
 
+**Factory Development:** Factory/OEM partners are already working in parallel on hardware development (3D printed enclosures and PCB design/manufacturing) and production preparation. This proposal includes firmware-side factory liaison work: coordinating firmware requirements with PCB design, providing test procedures, and ensuring production readiness alignment.
+
 ---
 
 ### Weekly Hours Breakdown
 
 | Week | Engineering Hours | Acoustics Hours | Total Hours | Demo |
 |------|------------------|-----------------|-------------|------|
-| Week 1 | 40h | — | 40h | — |
-| Week 2 | 40h | — | 40h | **Demo 1** |
-| Week 3 | 45h | — | 45h | — |
+| Week 1 | 42h | — | 42h | — |
+| Week 2 | 42h | — | 42h | **Demo 1** |
+| Week 3 | 47h | — | 47h | — |
 | Week 4 | 45h | — | 45h | **Demo 2** |
 | Week 5 | 20h | 20h | 40h | — |
 | Week 6 | 22h | 20h | 42h | **Demo 3** |
 | Week 7 | 28h | 20h | 48h | — |
 | Week 8 | 30h | 20h | 50h | **Demo 4** |
-| **Total** | **270h** | **60h** | **330h** | **4 Demos** |
+| **Total** | **276h** | **60h** | **336h** | **4 Demos** |
 
-*Note: Factory liaison hours included in Weeks 6-8 (10h total) for coordination with factory/OEM partners.*
+*Note: Factory liaison hours included throughout all weeks (18h total) for coordination with factory/OEM partners on PCB design/manufacturing and 3D printed enclosure development.*
 
 ### December Costs (Weeks 1-4)
-- 170 engineering hours × $100/hr = **$17,000**
+- 176 engineering hours × $100/hr = **$17,600**
 - After-hours (40h × $150/hr) = **$6,000**
 
-**Total December: $23,000**
+**Total December: $23,600**
 
 ### January Costs (Weeks 5-8)
 - 100 engineering hours × $100/hr = **$10,000**
@@ -617,7 +645,7 @@ REW measurement data directly informs:
 
 ### Total 2-Month Project Cost
 
-**$45,000**
+**$45,600**
 
 *Note: Hours are estimates and may vary based on hardware availability and integration complexity. After-hours work is scheduled for critical path items and demo preparation. Server/app development by Vinaya and Aman proceeds in parallel and is not included in this firmware development proposal.*
 
@@ -630,6 +658,7 @@ REW measurement data directly informs:
 - Audio I/O functional (test tones, mic array capture)
 - ESP32-S3 ↔ RK3308B communication established
 - LED and sensor control integrated
+- Factory audio requirements documented (PCB and 3D enclosure coordination)
 - **Demo 1: "Hello RK3308B" Audio Bring-Up**
 
 ### Week 4 Deliverables (Demo 2)
@@ -640,6 +669,7 @@ REW measurement data directly informs:
 - Network provisioning flow complete
 - Server API integration complete (firmware side, coordinated with Vinaya)
 - App communication functional (coordinated with Aman)
+- Factory DSP/audio requirements documented (PCB and 3D enclosure)
 - **Demo 2: Spotify + Wake Word Architecture** (includes server/app integration)
 
 ### Week 6 Deliverables (Demo 3)
@@ -650,7 +680,8 @@ REW measurement data directly informs:
 - Far-field wake word performance validated (0.5m - 3m)
 - Direction-of-arrival accuracy confirmed
 - REW measurement data comparing baseline vs. beamforming performance
-- Factory coordination initiated (hardware specs review, DVT planning)
+- Factory beamforming requirements shared (mic array positioning in 3D enclosure, PCB layout)
+- DVT planning coordinated (PCB and 3D prototype validation)
 - **Demo 3: Beamforming + Far-Field Capture** (includes REW measurement demonstrations)
 
 ### Week 8 Deliverables (Demo 4)
@@ -680,9 +711,9 @@ REW measurement data directly informs:
 - Firmware system architecture documentation
 - Firmware API specifications (for server/app teams - Vinaya and Aman)
 - Manufacturing test requirements (based on REW baseline measurements)
-- Factory test procedures and production line specifications
+- Factory test procedures and production line specifications (PCB electrical tests, 3D assembly validation)
 - Firmware release package for factory (binaries, calibration data, test scripts)
-- Production readiness documentation for factory/OEM partners
+- Production readiness documentation for factory/OEM partners (PCB manufacturing, 3D printing/assembly)
 - All 4 demonstrations completed and documented
 - End-to-end integration validated: App (Aman) ↔ Server (Vinaya) ↔ Firmware
 

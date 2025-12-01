@@ -359,19 +359,26 @@ REW measurement data directly informs:
 - [ ] Test Spotify authentication and device discovery
 - [ ] Validate audio quality and sample rate handling
 - [ ] Create Spotify control API (play/pause/volume via commands)
+- [ ] Coordinate with Vinaya (server) and Aman (app) on API specifications
+- [ ] Design firmware-side server API integration architecture (REST/WebSocket)
+- [ ] Implement device registration and authentication endpoints (firmware side)
+- [ ] Create basic server communication module (ESP32-S3 → Server)
+- [ ] Test initial server connectivity and authentication
 
 **Deliverables:**
 - Spotify Connect device appears in Spotify app
 - Music playback functional
 - DSP framework ready for algorithm loading
+- Server communication infrastructure established (firmware side)
+- API specifications coordinated with server/app teams
 
-**Hours:** ~40h
+**Hours:** ~45h (40h audio/DSP + 5h server integration coordination)
 
 ---
 
-#### Week 4: Wake Word Pipeline & Full Architecture → **Demo 2**
+#### Week 4: Wake Word Pipeline & Server/App Integration → **Demo 2**
 
-**Objective:** Complete core architecture with wake word detection
+**Objective:** Complete core architecture with wake word detection and server/app integration
 
 **Tasks:**
 - [ ] Integrate wake word detection engine (e.g., Porcupine, Picovoice)
@@ -381,15 +388,30 @@ REW measurement data directly informs:
 - [ ] Test network provisioning flow (ESP32-S3 → RK3308B)
 - [ ] Implement system status reporting and health checks
 - [ ] Create unified logging system across both processors
-- [ ] Validate end-to-end command flow
+- [ ] Coordinate with Vinaya (server) on firmware-side API implementation:
+  - Device status sync endpoints (online/offline, battery, sensors)
+  - Command queue and execution handlers
+  - Audio state sync (playback status, volume, track info)
+  - Wake word event reporting
+  - OTA update coordination
+- [ ] Coordinate with Aman (app) on device communication protocol:
+  - Mobile app ↔ Server ↔ Device command flow validation
+  - Real-time status updates (WebSocket or polling)
+  - Device discovery and pairing flow
+  - Remote control endpoints (play/pause, volume, wake word trigger)
+- [ ] Integrate firmware-side server API endpoints (Vinaya's server integration)
+- [ ] Test end-to-end: App (Aman) → Server (Vinaya) → ESP32-S3 → RK3308B
+- [ ] Validate error handling and reconnection logic
 - [ ] Prepare demo script and documentation
 
 **Deliverables:**
 - Wake word detection functional
 - Full dual-processor architecture operational
-- **Demo 2 ready for presentation**
+- Server API integration complete (firmware side, coordinated with Vinaya)
+- App communication functional (coordinated with Aman)
+- **Demo 2 ready for presentation** (includes server/app integration)
 
-**Hours:** ~40h
+**Hours:** ~45h (30h wake word/architecture + 15h server/app integration coordination)
 
 ---
 
@@ -455,9 +477,9 @@ REW measurement data directly informs:
 
 ---
 
-#### Week 7: AEC Integration & Environmental Testing
+#### Week 7: AEC Integration, Environmental Testing & Server/App Validation
 
-**Objective:** Enable AEC and validate performance under real-world conditions
+**Objective:** Enable AEC, validate performance, and complete server/app integration testing
 
 **Tasks:**
 - [ ] Integrate AEC (Acoustic Echo Cancellation) algorithm
@@ -472,14 +494,27 @@ REW measurement data directly informs:
 - [ ] Compare REW measurements: baseline vs. AEC active vs. AEC + Spotify
 - [ ] Document AEC tuning parameters
 - [ ] Create AEC performance report with REW measurement data
+- [ ] Coordinate with Vinaya (server) and Aman (app) on integration testing:
+  - Multi-device scenarios
+  - Concurrent user sessions
+  - Server failover and reconnection
+  - Data synchronization accuracy
+- [ ] Firmware-side integration testing:
+  - All firmware endpoints responding correctly
+  - Error handling and reconnection logic
+  - Performance under various network conditions
+- [ ] End-to-end integration testing: App (Aman) ↔ Server (Vinaya) ↔ Firmware
+- [ ] Document firmware-side API specifications for server/app teams
 
 **Deliverables:**
 - AEC functional with Spotify playback
 - Wake word works reliably with music on
 - REW measurement data validating AEC performance
 - Environmental testing complete
+- Server integration fully validated (coordinated with Vinaya)
+- App integration fully validated (coordinated with Aman)
 
-**Hours:** ~20h (acoustics) + ~20h (engineering)
+**Hours:** ~20h (acoustics) + ~25h (engineering: 20h AEC + 5h server/app coordination)
 
 ---
 
@@ -500,22 +535,35 @@ REW measurement data directly informs:
 - [ ] Document calibration procedures using REW measurement protocols
 - [ ] Prepare manufacturing test requirements based on REW baseline measurements
 - [ ] Create final acoustic tuning report with comprehensive REW measurement data
-- [ ] Prepare comprehensive demo showcasing all features including REW measurement demonstrations
-- [ ] Document system architecture and API specifications
+- [ ] Coordinate final server/app integration polish with Vinaya and Aman:
+  - Performance optimization validation
+  - Security audit coordination (authentication, encryption)
+  - Error recovery and edge case handling testing
+  - Load testing and scalability validation
+- [ ] Complete end-to-end system testing: App (Aman) → Server (Vinaya) → Firmware → Hardware
+- [ ] Prepare comprehensive demo showcasing all features including REW measurement demonstrations and server/app integration
+- [ ] Document firmware system architecture and API specifications (for server/app teams)
 
 **Deliverables:**
 - All features integrated and tested
 - Production-ready tuning parameters validated with REW measurements
 - Final acoustic report with complete REW measurement data and analysis
 - Manufacturing test procedures based on REW measurement protocols
-- **Demo 4 ready for presentation** (includes final REW measurement demonstrations)
-- Complete documentation package
+- Server/app integration production-ready (coordinated with Vinaya and Aman)
+- **Demo 4 ready for presentation** (includes final REW measurement demonstrations and full server/app integration)
+- Complete documentation package (firmware APIs and integration specs)
 
-**Hours:** ~20h (acoustics) + ~20h (engineering)
+**Hours:** ~20h (acoustics) + ~25h (engineering: 20h tuning/testing + 5h server/app coordination)
 
 ---
 
 ## 7. Billing & Cost Summary
+
+### Team Coordination Note
+
+**Server and App Development:** Server development (by Vinaya) and app development (by Aman) will proceed in parallel with firmware development. This proposal covers firmware-side integration work, API coordination, and end-to-end testing. Firmware tasks focus on integration points and coordination rather than building server/app components.
+
+---
 
 ### Weekly Hours Breakdown
 
@@ -523,32 +571,32 @@ REW measurement data directly informs:
 |------|------------------|-----------------|-------------|------|
 | Week 1 | 40h | — | 40h | — |
 | Week 2 | 40h | — | 40h | **Demo 1** |
-| Week 3 | 40h | — | 40h | — |
-| Week 4 | 40h | — | 40h | **Demo 2** |
+| Week 3 | 45h | — | 45h | — |
+| Week 4 | 45h | — | 45h | **Demo 2** |
 | Week 5 | 20h | 20h | 40h | — |
 | Week 6 | 20h | 20h | 40h | **Demo 3** |
-| Week 7 | 20h | 20h | 40h | — |
-| Week 8 | 20h | 20h | 40h | **Demo 4** |
-| **Total** | **240h** | **60h** | **300h** | **4 Demos** |
+| Week 7 | 25h | 20h | 45h | — |
+| Week 8 | 25h | 20h | 45h | **Demo 4** |
+| **Total** | **260h** | **60h** | **320h** | **4 Demos** |
 
 ### December Costs (Weeks 1-4)
-- 160 engineering hours × $100/hr = **$16,000**
+- 170 engineering hours × $100/hr = **$17,000**
 - After-hours (40h × $150/hr) = **$6,000**
 
-**Total December: $22,000**
+**Total December: $23,000**
 
 ### January Costs (Weeks 5-8)
-- 60 engineering hours × $100/hr = **$6,000**
+- 90 engineering hours × $100/hr = **$9,000**
 - 60 acoustics hours × $100/hr = **$6,000**
 - After-hours (40h × $150/hr) = **$6,000**
 
-**Total January: $20,000**
+**Total January: $21,000**
 
 ### Total 2-Month Project Cost
 
-**$42,000**
+**$44,000**
 
-*Note: Hours are estimates and may vary based on hardware availability and integration complexity. After-hours work is scheduled for critical path items and demo preparation.*
+*Note: Hours are estimates and may vary based on hardware availability and integration complexity. After-hours work is scheduled for critical path items and demo preparation. Server/app development by Vinaya and Aman proceeds in parallel and is not included in this firmware development proposal.*
 
 ---
 
@@ -567,7 +615,9 @@ REW measurement data directly informs:
 - Wake word detection pipeline operational
 - Full dual-processor architecture validated
 - Network provisioning flow complete
-- **Demo 2: Spotify + Wake Word Architecture**
+- Server API integration complete (firmware side, coordinated with Vinaya)
+- App communication functional (coordinated with Aman)
+- **Demo 2: Spotify + Wake Word Architecture** (includes server/app integration)
 
 ### Week 6 Deliverables (Demo 3)
 - REW acoustic test infrastructure established and operational
@@ -588,8 +638,9 @@ REW measurement data directly informs:
 - Production-ready tuning parameters validated with REW measurements
 - Final acoustic tuning report with comprehensive REW measurement data
 - Manufacturing test procedures documented (based on REW measurement protocols)
-- Complete system documentation
-- **Demo 4: Production-Ready Acoustic + Voice Demo** (includes final REW measurement demonstrations)
+- Server/app integration production-ready (coordinated with Vinaya and Aman)
+- Complete firmware system documentation
+- **Demo 4: Production-Ready Acoustic + Voice Demo** (includes final REW measurement demonstrations and full server/app integration)
 
 ### Final Deliverables (End of Week 8)
 - Fully functional RK3308B + ESP32-S3 dual-processor system
@@ -600,10 +651,11 @@ REW measurement data directly informs:
   - AEC measurements (performance with Spotify, convergence analysis)
   - Final system measurements (complete frequency response, distortion, phase)
 - REW measurement data files and screenshots for all test phases
-- System architecture documentation
-- API specifications
+- Firmware system architecture documentation
+- Firmware API specifications (for server/app teams - Vinaya and Aman)
 - Manufacturing test requirements (based on REW baseline measurements)
 - All 4 demonstrations completed and documented
+- End-to-end integration validated: App (Aman) ↔ Server (Vinaya) ↔ Firmware
 
 ---
 

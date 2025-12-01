@@ -466,14 +466,19 @@ REW measurement data directly informs:
 - [ ] Document beamforming performance metrics with REW data
 - [ ] Generate REW measurement screenshots for demo presentation
 - [ ] Prepare demo materials (recordings, visualizations, REW measurement reports)
+- [ ] Initial factory liaison coordination:
+  - Review hardware specifications with factory/OEM partners
+  - Provide firmware requirements documentation
+  - Coordinate on DVT (Design Verification Test) planning
 
 **Deliverables:**
 - Beamforming functional and tuned
 - Far-field wake word performance validated
 - REW measurement data showing beamforming improvements
+- Factory coordination initiated
 - **Demo 3 ready for presentation** (includes REW measurement demonstrations)
 
-**Hours:** ~20h (acoustics) + ~20h (engineering)
+**Hours:** ~20h (acoustics) + ~22h (engineering: 20h beamforming + 2h factory liaison)
 
 ---
 
@@ -505,6 +510,11 @@ REW measurement data directly informs:
   - Performance under various network conditions
 - [ ] End-to-end integration testing: App (Aman) ↔ Server (Vinaya) ↔ Firmware
 - [ ] Document firmware-side API specifications for server/app teams
+- [ ] Factory liaison coordination:
+  - Develop factory test procedures and specifications
+  - Coordinate on production line test requirements
+  - Provide firmware calibration procedures for factory
+  - Review DVT hardware requirements with factory
 
 **Deliverables:**
 - AEC functional with Spotify playback
@@ -513,8 +523,9 @@ REW measurement data directly informs:
 - Environmental testing complete
 - Server integration fully validated (coordinated with Vinaya)
 - App integration fully validated (coordinated with Aman)
+- Factory test procedures documented
 
-**Hours:** ~20h (acoustics) + ~25h (engineering: 20h AEC + 5h server/app coordination)
+**Hours:** ~20h (acoustics) + ~28h (engineering: 20h AEC + 5h server/app + 3h factory liaison)
 
 ---
 
@@ -543,17 +554,27 @@ REW measurement data directly informs:
 - [ ] Complete end-to-end system testing: App (Aman) → Server (Vinaya) → Firmware → Hardware
 - [ ] Prepare comprehensive demo showcasing all features including REW measurement demonstrations and server/app integration
 - [ ] Document firmware system architecture and API specifications (for server/app teams)
+- [ ] Final factory liaison and production readiness:
+  - Complete factory test procedure documentation
+  - Production line test setup specifications
+  - Firmware release package for factory (binaries, calibration data, test scripts)
+  - Production readiness review with factory/OEM partners
+  - DVT hardware validation coordination
+  - Factory training materials (if required)
+  - Production sign-off documentation
 
 **Deliverables:**
 - All features integrated and tested
 - Production-ready tuning parameters validated with REW measurements
 - Final acoustic report with complete REW measurement data and analysis
 - Manufacturing test procedures based on REW measurement protocols
+- Factory test procedures and production line specifications complete
+- Firmware release package ready for factory
 - Server/app integration production-ready (coordinated with Vinaya and Aman)
 - **Demo 4 ready for presentation** (includes final REW measurement demonstrations and full server/app integration)
-- Complete documentation package (firmware APIs and integration specs)
+- Complete documentation package (firmware APIs, integration specs, factory documentation)
 
-**Hours:** ~20h (acoustics) + ~25h (engineering: 20h tuning/testing + 5h server/app coordination)
+**Hours:** ~20h (acoustics) + ~30h (engineering: 20h tuning/testing + 5h server/app + 5h factory liaison)
 
 ---
 
@@ -574,10 +595,12 @@ REW measurement data directly informs:
 | Week 3 | 45h | — | 45h | — |
 | Week 4 | 45h | — | 45h | **Demo 2** |
 | Week 5 | 20h | 20h | 40h | — |
-| Week 6 | 20h | 20h | 40h | **Demo 3** |
-| Week 7 | 25h | 20h | 45h | — |
-| Week 8 | 25h | 20h | 45h | **Demo 4** |
-| **Total** | **260h** | **60h** | **320h** | **4 Demos** |
+| Week 6 | 22h | 20h | 42h | **Demo 3** |
+| Week 7 | 28h | 20h | 48h | — |
+| Week 8 | 30h | 20h | 50h | **Demo 4** |
+| **Total** | **270h** | **60h** | **330h** | **4 Demos** |
+
+*Note: Factory liaison hours included in Weeks 6-8 (10h total) for coordination with factory/OEM partners.*
 
 ### December Costs (Weeks 1-4)
 - 170 engineering hours × $100/hr = **$17,000**
@@ -586,15 +609,15 @@ REW measurement data directly informs:
 **Total December: $23,000**
 
 ### January Costs (Weeks 5-8)
-- 90 engineering hours × $100/hr = **$9,000**
+- 100 engineering hours × $100/hr = **$10,000**
 - 60 acoustics hours × $100/hr = **$6,000**
 - After-hours (40h × $150/hr) = **$6,000**
 
-**Total January: $21,000**
+**Total January: $22,000**
 
 ### Total 2-Month Project Cost
 
-**$44,000**
+**$45,000**
 
 *Note: Hours are estimates and may vary based on hardware availability and integration complexity. After-hours work is scheduled for critical path items and demo preparation. Server/app development by Vinaya and Aman proceeds in parallel and is not included in this firmware development proposal.*
 
@@ -627,6 +650,7 @@ REW measurement data directly informs:
 - Far-field wake word performance validated (0.5m - 3m)
 - Direction-of-arrival accuracy confirmed
 - REW measurement data comparing baseline vs. beamforming performance
+- Factory coordination initiated (hardware specs review, DVT planning)
 - **Demo 3: Beamforming + Far-Field Capture** (includes REW measurement demonstrations)
 
 ### Week 8 Deliverables (Demo 4)
@@ -638,6 +662,8 @@ REW measurement data directly informs:
 - Production-ready tuning parameters validated with REW measurements
 - Final acoustic tuning report with comprehensive REW measurement data
 - Manufacturing test procedures documented (based on REW measurement protocols)
+- Factory test procedures and production line specifications complete
+- Firmware release package ready for factory (binaries, calibration data, test scripts)
 - Server/app integration production-ready (coordinated with Vinaya and Aman)
 - Complete firmware system documentation
 - **Demo 4: Production-Ready Acoustic + Voice Demo** (includes final REW measurement demonstrations and full server/app integration)
@@ -654,6 +680,9 @@ REW measurement data directly informs:
 - Firmware system architecture documentation
 - Firmware API specifications (for server/app teams - Vinaya and Aman)
 - Manufacturing test requirements (based on REW baseline measurements)
+- Factory test procedures and production line specifications
+- Firmware release package for factory (binaries, calibration data, test scripts)
+- Production readiness documentation for factory/OEM partners
 - All 4 demonstrations completed and documented
 - End-to-end integration validated: App (Aman) ↔ Server (Vinaya) ↔ Firmware
 

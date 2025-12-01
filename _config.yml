@@ -1,0 +1,5 @@
+title: Naphome RK3308B Proposal
+description: Transition from ESP32-S3 v0.9 → RK3308B Architecture
+theme: jekyll-theme-minimal
+plugins:
+  - jekyll-feed
